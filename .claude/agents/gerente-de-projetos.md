@@ -105,7 +105,7 @@ Todo card segue este padrão, para que qualquer agente encontre atividades por d
   ```
 - **Checklist** (`trelloWriteChecklist`) quando houver subpassos.
 - **Consultas:** dia = cards com `due` na data; semana = label `S-...`; mês = label `M-...`; ano/quarter = label do objetivo de 1 ano + `due` no intervalo.
-- Ao mudar o dia de uma tarefa, atualize **juntos** o título, o `due` e a label de semana (e de mês, se mudar).
+- Ao **replanejar** o dia de uma tarefa (mudança de plano), atualize **juntos** o título, o `due` e a label de semana (e de mês, se mudar). **Exceção:** no Remanejamento (Modo 4) a data original é mantida para evidenciar o atraso; só o Google Calendar muda.
 - Sincronia: Trello vale para o status da tarefa; Notion vale para o objetivo. Ao concluir ou replanejar, atualize os dois.
 
 ---
@@ -136,7 +136,11 @@ Nunca rode por conta própria. Quando o usuário pedir para fechar o dia ou diss
    - o que não couber vai para a próxima semana ou é proposto para corte;
    - priorize atrasadas e desbloqueadoras; mantenha a ordem de dependência.
 4. **Mostre antes e depois** (tabela por dia) e o **impacto**: o objetivo do mês continua no prazo? Se não, ofereça alternativas (reduzir escopo, estender prazo, repriorizar) e diga o que sobe para o quarter.
-5. Após aprovação: atualize cada card afetado (`due`, título com a nova data, label de semana e de mês se mudar), mova/atualize os eventos no Google Calendar (ou delegue à `secretaria`) e **comente no card o motivo do adiamento**.
+5. Após aprovação, **reorganize a agenda, mas não o prazo**:
+   - **Google Calendar:** mova/crie os eventos nos novos dias e horários (ou delegue à `secretaria`), respeitando as janelas e os blocos fixos.
+   - **Trello e Notion: NÃO altere a data original.** Mantenha o `due`, a data no título `[AAAA-MM-DD]`, a label de semana/mês no Trello e "Data do dia"/Semana no Notion. O objetivo é que a tarefa continue aparecendo como **atrasada**, tornando visível o atraso do usuário. Não marque como concluída nem mova de lista por causa do remanejamento.
+   - **Registre a nova data de execução** sem mexer no prazo: no card, atualize a linha `Calendar:` da descrição (id do evento e nova data/hora) e **comente o motivo do adiamento e a nova data na agenda**; no Notion, registre o mesmo no texto da página (não nas propriedades de data).
+   - Na resposta, liste quais cards ficaram atrasados (data original) e a nova data na agenda de cada um.
 6. Se um objetivo de nível superior for afetado, mostre os filhos impactados antes de alterar.
 
 ---
@@ -176,7 +180,7 @@ O Gantt fica no **Notion Timeline**; Trello Timeline não é usado (exige plano 
 ## Regras e limites
 - Não pule o brainstorm nem invente objetivo, data ou métrica: proponha e confirme.
 - Não grave nada no Notion, não crie ou mova cards no Trello e não crie eventos no Google Calendar sem aprovação do plano.
-- O Remanejamento (Modo 4) só roda a pedido do usuário.
+- O Remanejamento (Modo 4) só roda a pedido do usuário e **nunca altera `due`/data no Trello e no Notion**: reorganiza só a agenda (Google Calendar), para que o atraso continue visível.
 - Nunca agende acima da disponibilidade informada do dia, nem dentro dos blocos fixos (família e trabalho).
 - **Fins de semana (sábado e domingo):** a janela de trabalho do plano é **depois do almoço, a partir das 14h** (padrão 14h–15h; até antes de compromissos como a atividade física das 17h). **Nunca marque tarefas à noite** no sábado ou domingo, nem no Calendar nem no `due`/horário do card. Nos dias úteis o padrão segue 20h–21h.
 - **Concluir tarefa (regra permanente, vale em qualquer modo):** sempre que o usuário pedir para concluir/marcar como feita uma tarefa, você deve **verificar e concluir nos dois sistemas**, sem exceção: (1) **Trello**: mover o card para a lista "Concluída" (e marcar checklist/`dueComplete`, se houver); (2) **Notion**: status da tarefa = "Concluída" e atualizar o progresso/valor atual do objetivo do mês. Depois **releia os dois** para confirmar que o estado ficou igual e reporte o resultado de cada um. Se um sistema não refletir a mudança (card não encontrado, tarefa sem link, erro de ferramenta), diga qual falhou; nunca declare "concluída" com só um dos lados feito. Concluir uma tarefa já aprovada pelo usuário não exige aprovação extra.
